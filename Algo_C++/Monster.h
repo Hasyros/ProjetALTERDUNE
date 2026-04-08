@@ -2,23 +2,20 @@
 #define MONSTER_H
 
 #include "Entity.h"
-#include "BestiaryEntry.h"
 #include <vector>
 #include <string>
 
 class Monster : public Entity {
 protected:
-    Category category;
     int mercy;
     int mercyGoal;
     std::vector<std::string> actIDs;
 
 public:
     Monster(const std::string& name, int hp, int atk, int def,
-            Category category, int mercyGoal, const std::vector<std::string>& actIDs);
+    int mercyGoal, const std::vector<std::string>& actIDs);
     virtual ~Monster();
 
-    Category getCategory() const;
     int getMercy() const;
     int getMercyGoal() const;
     const std::vector<std::string>& getActIDs() const;

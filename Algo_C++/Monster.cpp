@@ -2,13 +2,12 @@
 #include <iostream>
 
 Monster::Monster(const std::string& name, int hp, int atk, int def,
-                 Category category, int mercyGoal, const std::vector<std::string>& actIDs)
-    : Entity(name, hp, atk, def), category(category), mercy(0),
+                  int mercyGoal, const std::vector<std::string>& actIDs)
+    : Entity(name, hp, atk, def), mercy(0),
       mercyGoal(mercyGoal), actIDs(actIDs) {}
 
 Monster::~Monster() {}
 
-Category Monster::getCategory() const { return category; }
 int Monster::getMercy() const { return mercy; }
 int Monster::getMercyGoal() const { return mercyGoal; }
 const std::vector<std::string>& Monster::getActIDs() const { return actIDs; }
@@ -24,7 +23,7 @@ bool Monster::isMercyReached() const {
 }
 
 void Monster::display() const {
-    std::cout << name << " [" << categoryToString(category) << "]"
+    std::cout << name
               << " | HP: " << hp << "/" << hpMax
               << " | ATK: " << atk << " | DEF: " << def
               << " | Mercy: " << mercy << "/" << mercyGoal
