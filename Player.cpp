@@ -6,7 +6,7 @@ using namespace std;
 // Le joueur commence avec 100 HP, 10 ATK, 5 DEF par defaut
 // (les stats du joueur ne sont pas dans un csv -> choix de design)
 Player::Player(const string& nom)
-    : Entity(nom, 100, 10, 5),
+    : Entity(nom, 100, 10, 2),
       kills(0), spares(0), victories(0) {}
 
 vector<Item>&         Player::getInventory() { return inventory; }
@@ -54,13 +54,14 @@ void Player::addBestiaryEntry(const BestiaryEntry& e) {
 }
 
 void Player::display() const {
-    cout << "[" << name << "]  HP: " << hp << "/" << hpMax << endl;
+    cout << "[" << name << "]  HP: " << hp << "/" << hpMax << " DEF: " << def << endl;
 }
 
 void Player::displayStats() const {
     cout << "\n----- STATS DU PERSONNAGE -----\n";
     cout << "  Nom        : " << name << "\n";
     cout << "  HP         : " << hp << "/" << hpMax << "\n";
+    cout << "  DEF        : " << def << "\n";
     cout << "  Tues       : " << kills    << "\n";
     cout << "  Epargnes   : " << spares   << "\n";
     cout << "  Victoires  : " << victories << "/10\n";

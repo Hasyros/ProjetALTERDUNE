@@ -227,7 +227,7 @@ void Game::startCombat() {
             if (dmg == 0) {
                 cout << "* Coup rate ! Honteux." << endl;
             } else {
-                enemy->takeDamage(dmg);
+                enemy->takeDamage(dmg - enemy->getDef());
                 cout << "* Vous infligez " << dmg << " degats a "
                      << enemy->getName() << "."
                      << "  (HP: " << enemy->getHp() << "/" << enemy->getHpMax() << ")"
@@ -316,7 +316,7 @@ void Game::startCombat() {
             if (mdmg == 0) {
                 cout << "* " << enemy->getName() << " rate son attaque, ouf." << endl;
             } else {
-                player->takeDamage(mdmg);
+                player->takeDamage(mdmg/player->getDef());
                 cout << "* " << enemy->getName() << " inflige " << mdmg << " degats !"
                      << "  (HP: " << player->getHp() << "/" << player->getHpMax() << ")"
                      << endl;
