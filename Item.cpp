@@ -16,7 +16,12 @@ void Item::use() {
 }
 
 void Item::display() const {
-    cout << name << " (" << type << ")"
-         << " - rend " << value << " HP"
-         << " - x" << quantity << endl;
+    cout << name << " (" << type << ")";
+    if (type == "HEAL")
+        cout << " - rend " << value << " HP";
+    else if (type == "BOOST_DEF")
+        cout << " - +" << value << " DEF pendant 3 tours";
+    else
+        cout << " - valeur " << value;
+    cout << " - x" << quantity << endl;
 }

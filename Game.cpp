@@ -317,7 +317,8 @@ void Game::startCombat() {
                 cout << "* " << enemy->getName() << " rate son attaque, ouf." << endl;
             } else {
                 player->takeDamage(mdmg/player->getDef());
-                cout << "* " << enemy->getName() << " inflige " << mdmg << " degats !"
+                cout << "* " << enemy->getName() << " inflige " << mdmg << "/" << player->getDef()
+                << " = " << mdmg/player->getDef() << " degats !"
                      << "  (HP: " << player->getHp() << "/" << player->getHpMax() << ")"
                      << endl;
             }

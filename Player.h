@@ -15,6 +15,10 @@ private:
     int spares;      // monstres epargnes
     int victories;   // total combats gagnes (kills + spares)
     std::vector<BestiaryEntry> bestiary;
+    // buff de defense temporaire :
+    // on retient combien on a ajoute a def pour pouvoir le retirer proprement
+    int defBonusActive; // montant actuellement ajoute a def (0 si aucun buff)
+    int defBonusTurns;  // tours restants avant expiration (0 = inactif)
 
 public:
     Player(const std::string& nom);
@@ -25,6 +29,11 @@ public:
     int getKills() const;
     int getSpares() const;
     int getVictories() const;
+    bool hasDefBonus() const;
+
+    // gestion du buff de defense
+    void applyDefBonus(int bonus, int turns); // applique +bonus a def et arme le timer
+    void tickDefBonus();                      // a appeler a chaque fin de tour joueur
 
     // modifs
     void addItem(const Item& it);
