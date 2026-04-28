@@ -224,7 +224,7 @@ void Game::startCombat() {
             uniform_int_distribution<int> dmgD(0, enemy->getHpMax());
             int dmg = dmgD(rng);
 
-            if (dmg == 0) {
+            if (dmg - enemy->getDef() <= 0) {
                 cout << "* Coup rate ! Honteux." << endl;
             } else {
                 enemy->takeDamage(dmg - enemy->getDef());

@@ -6,7 +6,7 @@ using namespace std;
 // Le joueur commence avec 100 HP, 10 ATK, 5 DEF par defaut
 // (les stats du joueur ne sont pas dans un csv -> choix de design)
 Player::Player(const string& nom)
-    : Entity(nom, 100, 10, 2),
+    : Entity(nom, 100, 10, 5),
       kills(0), spares(0), victories(0) {}
 
 vector<Item>&         Player::getInventory() { return inventory; }
